@@ -2,6 +2,8 @@ package set_a_to_b;
 
 import java.util.ArrayList;
 
+import set_a_to_b.OOP.Employee;
+
 public class OOP {
 
     // SET A
@@ -124,6 +126,125 @@ public class OOP {
         }
     }
 
+    // SET D
+    enum EventType {
+        SPORTS, MUSIC, ACADEMIC
+    }
+    class Event{
+        private String name;
+        private EventType eventType;
+
+        Event(String name, EventType eventType){
+            this.name = name;
+            this.eventType = eventType;
+        }
+
+        void setName(String name){
+            this.name = name;
+        }
+
+        void displayInfo(){
+            System.out.println("Event Name: " + name + " | Event Type: " + eventType);
+        }
+
+        void addingInfo(){
+            ArrayList<Event> events = new ArrayList<>();
+
+            events.add(new Event("Basketball Game", EventType.SPORTS));
+            events.add(new Event("Campus Concert", EventType.MUSIC));
+            events.add(new Event("Java Seminar", EventType.ACADEMIC));
+
+            events.get(1).setName("University Concert");
+            events.remove(0);
+
+            for(Event event: events){
+                event.displayInfo();
+            }
+
+            System.out.println("Total Events: " + events.size());
+        }
+    }
+
+    // SET E
+    enum Department{
+        IT, HR, SALES
+    }
+    class Employee{
+        private String name;
+        private Department department;
+
+        Employee(String name, Department department){
+            this.name = name;
+            this.department = department;
+        }
+
+        void setName(String name){
+            this.name = name;
+        }
+
+        void displayInfo(){
+            System.out.println("Name: " + name + " | Department: " + department);
+        }
+
+        void addingInfo(){
+            ArrayList<Employee> employees = new ArrayList<>();
+
+            employees.add(new Employee("Leo", Department.IT));
+            employees.add(new Employee("Mia", Department.HR));
+            employees.add(new Employee("Noah", Department.SALES));
+
+            employees.get(2).setName("Nathan");
+            employees.remove(0);
+
+            for(Employee employee: employees){
+                employee.displayInfo();
+            }
+
+            System.out.println("Total Employee: " + employees.size());
+        }        
+
+    }
+
+    // SET F
+    enum ProductType{
+        FOOD, CLOTHINGS, ELECTRONICS
+    }
+
+    class Product{
+        private String name;
+        private ProductType type;
+
+        Product(String name, ProductType type){
+            this.name = name;
+            this.type = type;
+        }
+
+        void setName(String name){
+            this.name = name;
+        }
+
+        void displayInfo(){
+            System.out.println("Product: " + name + " | Type: " + type);
+        }
+
+        void addingInfo(){
+            ArrayList<Product> products = new ArrayList<>();
+
+            products.add(new Product("Bread", ProductType.FOOD));
+            products.add(new Product("Jacket", ProductType.CLOTHINGS));
+            products.add(new Product("Headphones", ProductType.ELECTRONICS));
+
+            products.get(0).setName("Whole Wheat Bread");
+            products.remove(2);
+
+            for(Product product: products){
+                product.displayInfo();
+            }
+
+            System.out.println("Total Employee: " + products.size());
+        }  
+    }
+
     public static void main(String[] args) {
 
         // SET A
@@ -148,5 +269,28 @@ public class OOP {
         Order order = oop3.new Order("Burger", Status.READY);
         order.addingInfo();
 
+        System.out.println();
+
+        // SET D
+        System.out.println("----- SET D -----");
+        OOP oop4 = new OOP();
+        Event event = oop4.new Event("Basketball Game", EventType.SPORTS);
+        event.addingInfo();
+
+        System.out.println();
+
+        // SET E
+        System.out.println("----- SET E -----");
+        OOP oop5 = new OOP();
+        Employee employee = oop5.new Employee("Nathan", Department.SALES);
+        employee.addingInfo();
+
+        System.out.println();
+
+        // SET F
+        System.out.println("----- SET F -----");
+        OOP oop6 = new OOP();
+        Product product = oop6.new Product("Jacket", ProductType.CLOTHINGS);
+        product.addingInfo();
     }
 }
